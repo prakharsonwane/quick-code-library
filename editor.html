@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quick Code Library</title>
+<style>
+body { font-family: Arial; background:#111827; color:white; text-align:center; }
+input { padding:10px; width:300px; margin:20px; }
+button { padding:8px 15px; margin:5px; cursor:pointer; }
+.card {
+    background:#1f2937;
+    padding:15px;
+    margin:10px auto;
+    width:60%;
+    text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Quick Code Library</h1>
+
+<input type="text" id="search" placeholder="Search..." onkeyup="render()">
+
+<div>
+<button onclick="setLang('all')">All</button>
+<button onclick="setLang('c')">C</button>
+<button onclick="setLang('python')">Python</button>
+</div>
+
+<div id="container"></div>
+
+<script>
+
+let currentLang = "all";
+
+let snippets = [
+{lang:"c", title:"C Hello", code:"#include<stdio.h>\nint main(){ printf(\"Hello\"); }"},
+{lang:"c", title:"C Loop", code:"for(int i=0;i<10;i++){ printf(\"%d\",i); }"},
+{lang:"c", title:"C If Else", code:"if(a>b) printf(\"A\"); else printf(\"B\");"},
+{lang:"python", title:"Python Hello", code:"print('Hello')"},
+{lang:"python", title:"Python Loop", code:"for i in range(5): print(i)"},
+{lang:"python", title:"Python If", code:"if a>b: print('A')"}
+];
+
+function setLang(lang){
+currentLang = lang;
+render();
+}
+
+function render(){
+let search = document.getElementById("search").value.toLowerCase();
+let container = document.getElementById("container");
+container.innerHTML = "";
+
+snippets.forEach(s=>{
+if(
+(s.title.toLowerCase().includes(search) || s.code.toLowerCase().includes(search)) &&
+(currentLang==="all" || s.lang===currentLang)
+){
+let div = document.createElement("div");
+div.className="card";
+
+div.innerHTML = `
+<b>${s.title}</b><br><br>
+<pre>${s.code}</pre>
+<button onclick="copyText(\`${s.code}\`)">Copy</button>
+`;
+
+container.appendChild(div);
+}
+});
+}
+
+function copyText(text){
+navigator.clipboard.writeText(text);
+alert("Copied!");
+}
+
+render();
+
+</script>
+
+</body>
+</html>
