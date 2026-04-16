@@ -2,23 +2,61 @@
 <html>
 <head>
 <title>Quick Code Library</title>
+
 <style>
-body { font-family: Arial; background:#111827; color:white; text-align:center; }
-input { padding:10px; width:300px; margin:20px; }
-button { padding:8px 15px; margin:5px; cursor:pointer; }
+body {
+    font-family: Arial;
+    background: linear-gradient(135deg,#2c2f36,#3b3f47);
+    color: white;
+    text-align: center;
+}
+
+h1 { margin-top: 20px; }
+
+input {
+    padding:12px;
+    width:320px;
+    margin:20px;
+    border-radius:8px;
+    border:none;
+}
+
+button {
+    padding:8px 15px;
+    margin:5px;
+    border:none;
+    border-radius:6px;
+    background:#6b7280;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#4b5563;
+}
+
 .card {
-    background:#1f2937;
-    padding:15px;
-    margin:10px auto;
-    width:60%;
+    background:#374151;
+    padding:18px;
+    margin:15px auto;
+    width:65%;
     text-align:left;
+    border-radius:12px;
+}
+
+pre {
+    background:#111827;
+    padding:15px;
+    border-radius:8px;
+    color:#22d3ee;
 }
 </style>
+
 </head>
 
 <body>
 
-<h1>Quick Code Library</h1>
+<h1>⚡ Quick Code Library</h1>
 
 <input type="text" id="search" placeholder="Search..." onkeyup="render()">
 
@@ -32,16 +70,16 @@ button { padding:8px 15px; margin:5px; cursor:pointer; }
 
 <script>
 
-let currentLang = "all";
+let currentLang="all";
 
-let snippets = [
+let snippets=[
 
-/* ===== C (50) ===== */
+// ===== C (50) =====
 {lang:"c",title:"C Hello",code:"#include<stdio.h>\nint main(){printf(\"Hello\");}"},
-{lang:"c",title:"C Loop",code:"for(int i=0;i<10;i++){printf(\"%d\",i);}"},
-{lang:"c",title:"C While",code:"int i=0;while(i<5){i++;}"},
+{lang:"c",title:"C For Loop",code:"for(int i=0;i<10;i++){printf(\"%d\",i);}"},
+{lang:"c",title:"C While Loop",code:"int i=0;while(i<5){i++;}"},
 {lang:"c",title:"C Do While",code:"int i=0;do{i++;}while(i<5);"},
-{lang:"c",title:"C If Else",code:"if(a>b)printf(\"A\");else printf(\"B\");"},
+{lang:"c",title:"C If Else",code:"if(a>b) printf(\"A\"); else printf(\"B\");"},
 {lang:"c",title:"C Switch",code:"switch(n){case 1:break;}"},
 {lang:"c",title:"C Array",code:"int a[5]={1,2,3,4,5};"},
 {lang:"c",title:"C 2D Array",code:"int a[2][2]={{1,2},{3,4}};"},
@@ -58,8 +96,8 @@ let snippets = [
 {lang:"c",title:"C Input",code:"scanf(\"%d\",&a);"},
 {lang:"c",title:"C Output",code:"printf(\"%d\",a);"},
 {lang:"c",title:"C Math",code:"pow(2,3);"},
-{lang:"c",title:"C Sorting",code:"// sorting logic"},
-{lang:"c",title:"C Searching",code:"// search logic"},
+{lang:"c",title:"C Sorting",code:"// sorting"},
+{lang:"c",title:"C Searching",code:"// searching"},
 {lang:"c",title:"C Prime",code:"for(i=2;i<n;i++)"},
 {lang:"c",title:"C Fibonacci",code:"a=0,b=1;"},
 {lang:"c",title:"C Palindrome",code:"// palindrome"},
@@ -88,7 +126,7 @@ let snippets = [
 {lang:"c",title:"C String Copy",code:"strcpy(a,b);"},
 {lang:"c",title:"C String Compare",code:"strcmp(a,b);"},
 
-/* ===== Python (50) ===== */
+// ===== Python (50) =====
 {lang:"python",title:"Py Hello",code:"print('Hello')"},
 {lang:"python",title:"Py Loop",code:"for i in range(10):print(i)"},
 {lang:"python",title:"Py While",code:"while i<5:i+=1"},
